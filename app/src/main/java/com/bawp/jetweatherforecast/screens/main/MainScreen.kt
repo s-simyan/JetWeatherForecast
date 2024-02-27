@@ -42,8 +42,10 @@ fun MainScreen(
         mutableStateOf(false)
     }
 
-    if (!unitFromDb.isNullOrEmpty()) {
-        unit = unitFromDb[0].unit.split(" ")[0].lowercase()
+    if (unitFromDb.isNullOrEmpty()) {
+//        unit = unitFromDb[0].unit.split(" ")[0].lowercase()
+        unit = "imperial"
+
         isImperial = unit == "imperial"
 
         val weatherData = produceState<DataOrException<Weather, Boolean, Exception>>(
